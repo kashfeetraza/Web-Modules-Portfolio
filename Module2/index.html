@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Futuristic Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0b0f1a;color:white;overflow-x:hidden}
+
+/* Animated Gradient Background */
+body::before{
+ content:"";
+ position:fixed;
+ width:600px;
+ height:600px;
+ background:radial-gradient(circle,#00f5ff,#7c3aed);
+ filter:blur(150px);
+ top:-200px;
+ left:-200px;
+ z-index:-1;
+ animation:move 10s infinite alternate;
+}
+@keyframes move{
+ from{transform:translate(0,0)}
+ to{transform:translate(200px,150px)}
+}
+
+header{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:25px 8%;
+ position:fixed;
+ width:100%;
+ background:rgba(11,15,26,0.6);
+ backdrop-filter:blur(10px);
+ z-index:1000;
+}
+.logo{font-family:'Orbitron',sans-serif;font-weight:800;font-size:22px;color:#00f5ff}
+nav a{margin-left:25px;text-decoration:none;color:white;transition:.3s}
+nav a:hover{color:#00f5ff}
+
+.hero{
+ height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-direction:column;
+ text-align:center;
+ padding:0 20px;
+}
+.hero h1{
+ font-family:'Orbitron',sans-serif;
+ font-size:60px;
+ margin-bottom:15px;
+}
+.hero span{color:#00f5ff}
+.hero p{color:#cbd5e1;margin-bottom:25px;max-width:600px}
+
+.btn{
+ padding:14px 35px;
+ background:linear-gradient(90deg,#00f5ff,#7c3aed);
+ border:none;
+ border-radius:30px;
+ color:white;
+ font-weight:600;
+ cursor:pointer;
+ transition:.4s;
+}
+.btn:hover{transform:scale(1.08)}
+
+section{padding:120px 8%}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:30px;
+}
+
+.card{
+ background:rgba(255,255,255,0.05);
+ border:1px solid rgba(255,255,255,0.1);
+ padding:30px;
+ border-radius:20px;
+ backdrop-filter:blur(20px);
+ transition:.4s;
+}
+.card:hover{
+ transform:translateY(-10px);
+ border-color:#00f5ff;
+}
+.card h3{margin-bottom:10px;color:#00f5ff}
+.card p{color:#cbd5e1;font-size:14px}
+
+footer{
+ text-align:center;
+ padding:30px;
+ background:#05070d;
+ color:#94a3b8;
+}
+
+@media(max-width:768px){
+.hero h1{font-size:40px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="logo">NeoPortfolio</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<h1>I Am <span id="typing"></span></h1>
+<p>Building futuristic, immersive web experiences with cutting-edge design and smooth interactions.</p>
+<button class="btn" onclick="scrollToProjects()">Explore Work</button>
+</section>
+
+<section id="projects">
+<h2 style="text-align:center;margin-bottom:50px;font-family:'Orbitron';">Projects</h2>
+<div class="grid">
+<div class="card">
+<h3>AI Dashboard</h3>
+<p>Modern AI interface with glassmorphism and dynamic UI.</p>
+</div>
+<div class="card">
+<h3>Crypto Landing Page</h3>
+<p>High-converting futuristic landing page design.</p>
+</div>
+<div class="card">
+<h3>3D Portfolio</h3>
+<p>Interactive 3D experience with animated elements.</p>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<h2 style="text-align:center;margin-bottom:40px;font-family:'Orbitron';">Get In Touch</h2>
+<div class="grid">
+<div class="card">
+<h3>Email</h3>
+<p>your@email.com</p>
+</div>
+<div class="card">
+<h3>LinkedIn</h3>
+<p>linkedin.com/in/yourname</p>
+</div>
+<div class="card">
+<h3>GitHub</h3>
+<p>github.com/yourname</p>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Your Name | Futuristic Portfolio
+</footer>
+
+<script>
+const words=["Your Name","Web Developer","UI Designer","Creative Coder"];
+let i=0,j=0,currentWord="",isDeleting=false;
+
+function type(){
+ currentWord=words[i];
+ if(!isDeleting){
+  document.getElementById("typing").textContent=currentWord.slice(0,++j);
+  if(j===currentWord.length){isDeleting=true;setTimeout(type,1000);return;}
+ }else{
+  document.getElementById("typing").textContent=currentWord.slice(0,--j);
+  if(j===0){isDeleting=false;i=(i+1)%words.length;}
+ }
+ setTimeout(type,100);
+}
+type();
+
+function scrollToProjects(){
+ document.getElementById('projects').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>

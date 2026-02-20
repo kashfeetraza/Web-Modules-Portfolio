@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Portfolio | Creative Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background: radial-gradient(circle at top left,#1b1b2f,#0f0f1b 70%);
+    color:white;
+    overflow-x:hidden;
+}
+
+section{
+    padding:100px 8%;
+}
+
+h1,h2,h3{
+    font-weight:700;
+}
+
+p{
+    opacity:0.7;
+}
+
+/* ================= NAV ================= */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 8%;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:35px;
+}
+
+nav ul li{
+    cursor:pointer;
+    opacity:0.8;
+}
+
+nav ul li:hover{
+    opacity:1;
+}
+
+.btn{
+    padding:10px 22px;
+    border-radius:8px;
+    border:none;
+    background:linear-gradient(45deg,#7f5af0,#a855f7);
+    color:white;
+    cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.hero-text h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero-text span{
+    color:#a855f7;
+}
+
+.hero-image img{
+    width:380px;
+    border-radius:20px;
+}
+
+/* ================= CLIENT LOGOS ================= */
+
+.logos{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    opacity:0.6;
+}
+
+/* ================= SERVICES ================= */
+
+.cards{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.card{
+    flex:1;
+    min-width:250px;
+    padding:30px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:rgba(168,85,247,0.1);
+}
+
+/* ================= SKILLS ================= */
+
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-top:30px;
+}
+
+.skill{
+    padding:10px 20px;
+    background:rgba(168,85,247,0.15);
+    border-radius:20px;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects{
+    display:flex;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:50px;
+}
+
+.project{
+    flex:1;
+    min-width:280px;
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.4s;
+}
+
+.project img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.project-content{
+    padding:20px;
+}
+
+.project:hover{
+    transform:scale(1.03);
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    background:linear-gradient(45deg,#7f5af0,#a855f7);
+    padding:70px 8%;
+    border-radius:30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+.cta h2{
+    font-size:35px;
+}
+
+.cta button{
+    background:white;
+    color:#7f5af0;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    padding:40px;
+    opacity:0.6;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero-text h1{
+        font-size:40px;
+    }
+
+    .cta{
+        text-align:center;
+        flex-direction:column;
+        gap:20px;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <h2>MyPortfolio</h2>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Projects</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    <button class="btn">Hire Me</button>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Your <span>AI-Powered</span><br>Creative Developer</h1>
+        <p>I design and build modern websites, web apps, and AI-driven experiences that elevate brands and products.</p>
+        <br>
+        <button class="btn">View Projects</button>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" alt="">
+    </div>
+</section>
+
+<section>
+    <div class="logos">
+        <p>HTML</p>
+        <p>CSS</p>
+        <p>JavaScript</p>
+        <p>React</p>
+        <p>Figma</p>
+    </div>
+</section>
+
+<section>
+    <h2>What I Do</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Web Design</h3>
+            <p>Modern UI/UX design with creativity and precision.</p>
+        </div>
+
+        <div class="card">
+            <h3>Frontend Development</h3>
+            <p>Responsive, scalable and high-performance websites.</p>
+        </div>
+
+        <div class="card">
+            <h3>AI Integration</h3>
+            <p>Smart AI-powered features for next-gen applications.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>My Skills</h2>
+    <div class="skills">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React</div>
+        <div class="skill">Tailwind</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">Figma</div>
+        <div class="skill">AI Tools</div>
+    </div>
+</section>
+
+<section>
+    <h2>Featured Projects</h2>
+    <div class="projects">
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166" alt="">
+            <div class="project-content">
+                <h3>SaaS Landing Page</h3>
+                <p>Modern AI SaaS website design & development.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d" alt="">
+            <div class="project-content">
+                <h3>E-Commerce Website</h3>
+                <p>Fully responsive online store with cart system.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9" alt="">
+            <div class="project-content">
+                <h3>AI Dashboard</h3>
+                <p>Interactive dashboard with analytics & AI tools.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="cta">
+        <h2>Start Your Project Today</h2>
+        <button>Contact Me</button>
+    </div>
+</section>
+
+<footer>
+    © 2025 MyPortfolio. All rights reserved.
+</footer>
+
+</body>
+</html>

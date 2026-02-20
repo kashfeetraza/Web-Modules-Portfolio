@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Modern Portfolio</title>
+  <meta name="description" content="Modern portfolio with latest UI approach: bento grid, clean typography, subtle motion." />
+
+  <style>
+    :root{
+      --bg:#060814;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.12);
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,.70);
+      --brand:#7c3aed;   /* purple */
+      --brand2:#22c55e;  /* green */
+      --radius: 18px;
+      --shadow: 0 18px 60px rgba(0,0,0,.50);
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(1200px 600px at 15% 0%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(34,197,94,.20), transparent 60%),
+        linear-gradient(180deg, #030616, var(--bg));
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .card{
+      border:1px solid var(--stroke);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    /* NAV */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: rgba(3,6,22,.55);
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .logo{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.3px;
+    }
+    .orb{
+      width:12px; height:12px; border-radius:999px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 0 0 4px rgba(124,58,237,.14);
+    }
+    .links{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .links a{
+      color: var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    .links a:hover{
+      color: var(--text);
+      border-color: var(--stroke);
+      background: rgba(255,255,255,.05);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{background: rgba(255,255,255,.08)}
+    .btn.primary{
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(34,197,94,.65));
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .btn.small{padding:9px 12px; font-size:14px}
+
+    /* HERO */
+    .hero{
+      padding:40px 0 18px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:12px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
+
+    .hero-main{padding:22px}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size:14px;
+    }
+    .pill i{
+      width:9px; height:9px; border-radius:999px;
+      background: var(--brand2);
+      box-shadow: 0 0 0 4px rgba(34,197,94,.14);
+      display:inline-block;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size: clamp(34px, 5.2vw, 56px);
+      letter-spacing:-.8px;
+      line-height:1.02;
+    }
+    .lead{
+      margin:0 0 14px;
+      color: var(--muted);
+      line-height:1.75;
+      font-size:16px;
+      max-width: 62ch;
+    }
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+
+    /* Bento Grid */
+    .bento{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .tile{
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.05);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.28);
+      position:relative;
+      overflow:hidden;
+      transform: translateZ(0);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .tile:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.18);
+    }
+    .tile:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background:
+        radial-gradient(500px 240px at 25% 15%, rgba(124,58,237,.22), transparent 60%),
+        radial-gradient(520px 260px at 85% 10%, rgba(34,197,94,.15), transparent 60%);
+      filter: blur(14px);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .tile > *{position:relative}
+    .t-title{margin:0 0 6px; font-size:14px; letter-spacing:.2px}
+    .t-text{margin:0; color: var(--muted); line-height:1.6; font-size:14px}
+    .big-number{font-size:34px; font-weight:800; letter-spacing:-.6px}
+
+    .span-7{grid-column: span 7}
+    .span-5{grid-column: span 5}
+    .span-6{grid-column: span 6}
+    .span-4{grid-column: span 4}
+    .span-8{grid-column: span 8}
+    .span-12{grid-column: span 12}
+
+    @media (max-width: 980px){
+      .span-7,.span-5,.span-6,.span-4,.span-8{grid-column: span 12}
+    }
+
+    .hero-side{padding:0; background: transparent; border:none; box-shadow:none}
+    .hero-side .tile{height:100%}
+
+    .mini-row{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px
+    }
+    .chip{
+      font-size:12px;
+      color: var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+    }
+
+    /* Sections */
+    section{padding:18px 0}
+    .head{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin-bottom:12px;
+    }
+    h2{margin:0; font-size:22px; letter-spacing:-.3px}
+    .hint{color: var(--muted); font-size:14px}
+
+    /* Projects */
+    .projects{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .project{
+      grid-column: span 4;
+      padding:16px;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .project:hover{transform: translateY(-2px); background: var(--panel2)}
+    @media (max-width: 980px){ .project{grid-column: span 6} }
+    @media (max-width: 640px){ .project{grid-column: span 12} }
+
+    .thumb{
+      height:140px;
+      border-radius: 14px;
+      border:1px solid var(--stroke);
+      background:
+        linear-gradient(135deg, rgba(124,58,237,.20), rgba(34,197,94,.14)),
+        radial-gradient(520px 220px at 30% 10%, rgba(255,255,255,.12), transparent 60%),
+        rgba(255,255,255,.03);
+      margin-bottom:12px;
+      position:relative;
+      overflow:hidden;
+    }
+    .thumb:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.16), transparent 45%);
+      transform: rotate(10deg);
+      opacity:.8;
+    }
+    .project h3{margin:0 0 6px; font-size:16px}
+    .project p{margin:0; color: var(--muted); line-height:1.65; font-size:14px}
+    .tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .tag{font-size:12px; color: var(--muted); border:1px solid var(--stroke); background: rgba(255,255,255,.04); padding:6px 9px; border-radius:999px}
+    .p-links{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap}
+    .link{font-size:13px; border:1px solid var(--stroke); background: rgba(255,255,255,.04); padding:8px 10px; border-radius:12px}
+    .link:hover{background: rgba(255,255,255,.07)}
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      align-items:start;
+    }
+    @media (max-width: 900px){ .contact{grid-template-columns:1fr} }
+
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    input::placeholder, textarea::placeholder{color: rgba(234,240,255,.45)}
+    form{display:grid; gap:10px}
+
+    footer{
+      margin-top:18px;
+      padding:26px 0 40px;
+      border-top:1px solid var(--stroke);
+      color: var(--muted);
+      text-align:center;
+    }
+
+    /* Toast */
+    .toast{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--stroke);
+      background: rgba(10,12,22,.86);
+      box-shadow: var(--shadow);
+      opacity:0;
+      transform: translateY(8px);
+      transition: .18s ease;
+      pointer-events:none;
+      max-width: 360px;
+    }
+    .toast.show{opacity:1; transform: translateY(0)}
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important; animation:none !important}
+      html{scroll-behavior:auto}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#top"><span class="orb"></span> <span>Your Name</span></a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button class="btn small" id="paletteBtn" type="button" aria-label="Toggle palette">✨ Palette</button>
+        <a class="btn primary small" href="#contact">Hire me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card hero-main">
+        <span class="pill"><i></i> Available for freelance • UI/UX • Frontend</span>
+        <h1>Bento-style portfolio with a clean, modern feel.</h1>
+        <p class="lead">
+          I design and build fast, responsive websites with modern UI patterns—bento grids,
+          crisp type, and subtle motion.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">See projects</a>
+          <a class="btn" href="#contact">Contact</a>
+          <a class="btn" href="resume.pdf" download>Download CV</a>
+        </div>
+      </div>
+
+      <!-- Right: Bento mini dashboard -->
+      <div class="hero-side">
+        <div class="bento">
+          <div class="tile span-7">
+            <div class="t-title">Now</div>
+            <div class="big-number">Building</div>
+            <p class="t-text">Landing pages, portfolios, and product sites with performance in mind.</p>
+            <div class="mini-row">
+              <span class="chip">Figma</span><span class="chip">HTML/CSS</span><span class="chip">React</span>
+            </div>
+          </div>
+
+          <div class="tile span-5">
+            <div class="t-title">Stats</div>
+            <div class="big-number">25+</div>
+            <p class="t-text">Projects shipped • Clean UI • Strong hierarchy</p>
+          </div>
+
+          <div class="tile span-6">
+            <div class="t-title">Speed</div>
+            <div class="big-number">90+</div>
+            <p class="t-text">Lighthouse-friendly layouts (depends on images + hosting).</p>
+          </div>
+
+          <div class="tile span-6">
+            <div class="t-title">Location</div>
+            <div class="big-number">Remote</div>
+            <p class="t-text">Pakistan • Worldwide clients • Quick communication.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="head">
+        <h2>Projects</h2>
+        <div class="hint">Replace placeholder content + links.</div>
+      </div>
+
+      <div class="projects">
+        <article class="card project">
+          <div class="thumb" aria-hidden="true"></div>
+          <h3>SaaS Landing Page</h3>
+          <p>Conversion layout: hero, features, social proof, pricing, FAQ.</p>
+          <div class="tags">
+            <span class="tag">UI</span><span class="tag">SEO</span><span class="tag">Responsive</span>
+          </div>
+          <div class="p-links">
+            <a class="link" href="#" target="_blank" rel="noreferrer">Live</a>
+            <a class="link" href="#" target="_blank" rel="noreferrer">Case study</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="thumb" aria-hidden="true"></div>
+          <h3>Modern Portfolio</h3>
+          <p>Bento grid + smooth sections + clean typography system.</p>
+          <div class="tags">
+            <span class="tag">Design</span><span class="tag">A11y</span><span class="tag">Brand</span>
+          </div>
+          <div class="p-links">
+            <a class="link" href="#" target="_blank" rel="noreferrer">Live</a>
+            <a class="link" href="#" target="_blank" rel="noreferrer">Code</a>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div class="thumb" aria-hidden="true"></div>
+          <h3>Business Website</h3>
+          <p>Service pages, portfolio/gallery, and contact form.</p>
+          <div class="tags">
+            <span class="tag">Web</span><span class="tag">Speed</span><span class="tag">UX</span>
+          </div>
+          <div class="p-links">
+            <a class="link" href="#" target="_blank" rel="noreferrer">Live</a>
+            <a class="link" href="#" target="_blank" rel="noreferrer">Details</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="head">
+        <h2>About</h2>
+        <div class="hint">Quick snapshot (edit text).</div>
+      </div>
+
+      <div class="bento">
+        <div class="tile span-8">
+          <div class="t-title">How I work</div>
+          <p class="t-text" style="margin-top:8px">
+            1) Quick call + goals → 2) Wireframe → 3) UI in Figma → 4) Build →
+            5) QA + speed checks → 6) Launch.
+          </p>
+        </div>
+
+        <div class="tile span-4">
+          <div class="t-title">Focus</div>
+          <p class="t-text" style="margin-top:8px">Modern UI, clean spacing, readable typography, fast load time.</p>
+        </div>
+
+        <div class="tile span-4">
+          <div class="t-title">Tools</div>
+          <p class="t-text" style="margin-top:8px">Figma • Webflow • HTML/CSS • JS • React</p>
+        </div>
+
+        <div class="tile span-8">
+          <div class="t-title">Results</div>
+          <p class="t-text" style="margin-top:8px">
+            Better clarity, stronger CTA placement, and layouts that feel premium on mobile and desktop.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="head">
+        <h2>Contact</h2>
+        <div class="hint">This demo copies a mailto link to clipboard.</div>
+      </div>
+
+      <div class="contact">
+        <div class="card" style="padding:18px">
+          <h3 style="margin:0 0 8px">Let’s build something</h3>
+          <p style="margin:0; color:var(--muted); line-height:1.7">
+            Share your timeline, budget range, and what you want to achieve.
+          </p>
+          <div style="margin-top:14px; display:grid; gap:10px">
+            <div class="tile" style="box-shadow:none">
+              <div class="t-title">Email</div>
+              <div class="t-text">you@example.com</div>
+            </div>
+            <div class="tile" style="box-shadow:none">
+              <div class="t-title">LinkedIn</div>
+              <div class="t-text">Add your link</div>
+            </div>
+            <div class="tile" style="box-shadow:none">
+              <div class="t-title">Location</div>
+              <div class="t-text">Remote • Worldwide</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding:18px">
+          <form id="contactForm">
+            <input id="name" placeholder="Your name" required />
+            <input id="email" type="email" placeholder="Your email" required />
+            <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+            <button class="btn primary" type="submit">Send</button>
+            <div style="color:var(--muted); font-size:13px; line-height:1.5">
+              Connect to Formspree / Netlify Forms / backend later.
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Your Name • Built with a modern bento approach
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const toast = document.getElementById("toast");
+    function showToast(msg){
+      toast.textContent = msg;
+      toast.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=>toast.classList.remove("show"), 2200);
+    }
+
+    // Contact demo -> copy mailto
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent(`Project Inquiry — ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n`);
+      const mailto = `mailto:you@example.com?subject=${subject}&body=${body}`;
+
+      try{
+        await navigator.clipboard.writeText(mailto);
+        showToast("Copied email link! Paste it in your browser/email app.");
+      }catch{
+        window.location.href = mailto;
+      }
+      e.target.reset();
+    });
+
+    // Palette toggle (Purple/Green ↔ Blue/Pink)
+    const paletteBtn = document.getElementById("paletteBtn");
+    let alt = false;
+    paletteBtn.addEventListener("click", () => {
+      alt = !alt;
+      const r = document.documentElement.style;
+      if(alt){
+        r.setProperty("--brand", "#60a5fa");  // blue
+        r.setProperty("--brand2", "#f472b6"); // pink
+        showToast("Palette: Blue/Pink");
+      }else{
+        r.setProperty("--brand", "#7c3aed");  // purple
+        r.setProperty("--brand2", "#22c55e"); // green
+        showToast("Palette: Purple/Green");
+      }
+    });
+  </script>
+</body>
+</html>

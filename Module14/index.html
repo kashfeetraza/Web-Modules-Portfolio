@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Portfolio</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient blobs -->
+  <div class="blob blob--1"></div>
+  <div class="blob blob--2"></div>
+  <div class="grain"></div>
+
+  <!-- Header / Nav -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="#top">Portfolio</a>
+
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav__link">Home</a>
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#projects" class="nav__link">Projects</a>
+        <a href="#contact" class="nav__link">Contact</a>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <div class="eyebrow">Hi, I am <strong>Anela Johnson</strong></div>
+
+        <h1 class="hero__title">
+          Product Designer<br/>
+          <span class="accent">and Developer</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          with 5+ years experience in the Digital World.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#contact">Hire me</a>
+          <a class="btn btn--ghost" href="#contact">Contact</a>
+        </div>
+
+        <div class="hero__chips">
+          <span class="chip"><i class="fa-brands fa-figma"></i> Figma</span>
+          <span class="chip"><i class="fa-brands fa-html5"></i> HTML</span>
+          <span class="chip"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+          <span class="chip"><i class="fa-brands fa-js"></i> JS</span>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__photoWrap">
+          <!-- Put your image in /assets/profile.jpg (or change the src) -->
+          <img class="hero__photo" src="assets/profile.jpg" alt="Portrait" />
+
+          <div class="floatIcon floatIcon--1" title="XD">
+            <span>Xd</span>
+          </div>
+          <div class="floatIcon floatIcon--2" title="PS">
+            <span>Ps</span>
+          </div>
+          <div class="floatIcon floatIcon--3" title="AI">
+            <span>Ai</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section__head">
+        <h2>How We Work</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+        </p>
+      </div>
+
+      <div class="panel">
+        <div class="workGrid">
+          <article class="workCard">
+            <div class="workCard__icon workCard__icon--blue"><i class="fa-regular fa-clipboard"></i></div>
+            <h3>Your Brief about<br/>the project</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            <a class="miniBtn miniBtn--blue" href="#">Read More</a>
+          </article>
+
+          <article class="workCard">
+            <div class="workCard__icon workCard__icon--pink"><i class="fa-solid fa-magnifying-glass"></i></div>
+            <h3>Doing Research On<br/>the Project</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            <a class="miniBtn miniBtn--pink" href="#">Read More</a>
+          </article>
+
+          <article class="workCard">
+            <div class="workCard__icon workCard__icon--yellow"><i class="fa-regular fa-lightbulb"></i></div>
+            <h3>Doing Research On<br/>the Project</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            <a class="miniBtn miniBtn--yellow" href="#">Read More</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section">
+    <div class="container skillsGrid">
+      <div class="skillsIntro">
+        <h2>My Skills</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+        </p>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="stat__num">10</div>
+            <div class="stat__label">Years of<br/>Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">211</div>
+            <div class="stat__label">Satisfied<br/>Clients</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="skillCards">
+        <div class="skillCard">
+          <div class="skillCard__icon skillCard__icon--pink"><i class="fa-regular fa-face-smile"></i></div>
+          <div class="skillCard__body">
+            <h3>User Experience</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <div class="skillCard">
+          <div class="skillCard__icon skillCard__icon--blue"><i class="fa-regular fa-object-ungroup"></i></div>
+          <div class="skillCard__body">
+            <h3>User Interface</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+        <div class="skillCard">
+          <div class="skillCard__icon skillCard__icon--yellow"><i class="fa-regular fa-gem"></i></div>
+          <div class="skillCard__body">
+            <h3>Product Design</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="projectsHead">
+        <div>
+          <h2>My latest<br/>Project</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        </div>
+        <span class="since">Since 2013</span>
+      </div>
+
+      <div class="projectsGrid">
+        <a class="project" href="#">
+          <div class="project__thumb">
+            <img src="assets/p1.jpg" alt="Project 1" />
+          </div>
+          <div class="project__meta">
+            <span>Travel Agency</span>
+            <span class="project__date">20/10/19</span>
+          </div>
+        </a>
+
+        <a class="project" href="#">
+          <div class="project__thumb">
+            <img src="assets/p2.jpg" alt="Project 2" />
+          </div>
+          <div class="project__meta">
+            <span>Online Course</span>
+            <span class="project__date">20/10/19</span>
+          </div>
+        </a>
+
+        <a class="project" href="#">
+          <div class="project__thumb">
+            <img src="assets/p3.jpg" alt="Project 3" />
+          </div>
+          <div class="project__meta">
+            <span>Online Health Service</span>
+            <span class="project__date">20/10/19</span>
+          </div>
+        </a>
+
+        <a class="project" href="#">
+          <div class="project__thumb">
+            <img src="assets/p4.jpg" alt="Project 4" />
+          </div>
+          <div class="project__meta">
+            <span>Travel Agency</span>
+            <span class="project__date">20/10/19</span>
+          </div>
+        </a>
+
+        <a class="project" href="#">
+          <div class="project__thumb">
+            <img src="assets/p5.jpg" alt="Project 5" />
+          </div>
+          <div class="project__meta">
+            <span>Restaurant</span>
+            <span class="project__date">20/10/19</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="center">
+        <a class="btn btn--primary btn--sm" href="#">Load More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container contactGrid">
+      <div class="contactIntro">
+        <h2>Let’s Talk<br/>About Your<br/>Project</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.
+        </p>
+      </div>
+
+      <form class="contactForm" id="contactForm">
+        <div class="contactForm__row">
+          <input type="text" name="name" placeholder="Your Name" required />
+        </div>
+
+        <div class="contactForm__row">
+          <input type="email" name="email" placeholder="Your Email" required />
+        </div>
+
+        <div class="contactForm__row">
+          <input type="text" name="subject" placeholder="Your Subject" required />
+        </div>
+
+        <div class="contactForm__row">
+          <textarea name="message" placeholder="Brief about your project..." rows="5" required></textarea>
+        </div>
+
+        <div class="contactForm__row">
+          <button class="btn btn--primary btn--sm" type="submit">Send</button>
+        </div>
+
+        <p class="formMsg" id="formMsg" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <h3>Contact</h3>
+      <a class="footer__email" href="mailto:anelajohnson@hotmail.com">anelajohnson@hotmail.com</a>
+
+      <div class="social">
+        <a href="#" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
+        <a href="#" aria-label="Behance"><i class="fa-brands fa-behance"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+
+      <div class="footerNav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <p class="copy">© <span id="year"></span> Anela Johnson. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

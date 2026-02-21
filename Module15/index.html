@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HYKROX – Unique Designs</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Background effects -->
+  <div class="bg-grid"></div>
+  <div class="glow glow--a"></div>
+  <div class="glow glow--b"></div>
+  <div class="noise"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top">
+        <span class="logo__mark">HYKROX</span>
+        <span class="logo__sub">unique designs</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav__link">HOME</a>
+        <a href="#designs" class="nav__link">DESIGNS</a>
+        <a href="#services" class="nav__link">SERVICES</a>
+        <a href="#about" class="nav__link">ABOUT US</a>
+        <a href="#contact" class="nav__link">CONTACT US</a>
+        <button class="nav__iconBtn" aria-label="Search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <div class="kicker">CREATIVE DESIGNER</div>
+
+          <h1 class="hero__title">
+            WE ARE <span class="accent">CREATIVE</span><br/>
+            DESIGNERS
+          </h1>
+
+          <div class="hero__rule"></div>
+
+          <p class="hero__text">
+            Lorem ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+          </p>
+        </div>
+
+        <div class="hero__visual">
+          <div class="portraitCard">
+            <!-- Put your hero image here -->
+            <img src="assets/hero.jpg" alt="Creative portrait" />
+            <div class="portraitCard__glow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES / WHAT WE DO -->
+    <section class="section" id="services">
+      <div class="container services__grid">
+        <div class="services__left">
+          <div class="kicker">OUR SERVICES</div>
+          <h2 class="section__title">WHAT WE <span class="accent">DO?</span></h2>
+          <div class="section__rule"></div>
+
+          <p class="muted">
+            Lorem ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+          </p>
+          <p class="muted">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+          </p>
+
+          <a class="btn btn--teal" href="#designs">
+            VIEW ALL <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="services__right">
+          <div class="serviceCards">
+            <article class="card neon">
+              <div class="card__icon"><i class="fa-solid fa-laptop-code"></i></div>
+              <h3>Website Design</h3>
+              <p>We can design for you a website and we can upload them.</p>
+            </article>
+
+            <article class="card neon">
+              <div class="card__icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+              <h3>Mobile & Desktop App</h3>
+              <p>We can create for you mobile and desktop app.</p>
+            </article>
+
+            <article class="card neon">
+              <div class="card__icon"><i class="fa-solid fa-bezier-curve"></i></div>
+              <h3>UI & UX Design</h3>
+              <p>We can create for you mobile and desktop app.</p>
+            </article>
+
+            <article class="card neon">
+              <div class="card__icon"><i class="fa-regular fa-image"></i></div>
+              <h3>Editing Photo</h3>
+              <p>We can design for you a website and we can upload them.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container about__grid">
+        <div class="about__photo">
+          <div class="photoFrame">
+            <!-- Put your about image here -->
+            <img src="assets/about.jpg" alt="Designer working" />
+            <div class="photoFrame__overlay"></div>
+          </div>
+        </div>
+
+        <div class="about__content">
+          <div class="kicker">ABOUT US</div>
+          <h2 class="section__title">WHO ARE <span class="accent">WE?</span></h2>
+          <div class="section__rule"></div>
+
+          <p class="muted">
+            Lorem ipsum is simply dummy text of the printing and typesetting industry.
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+            when an unknown printer took a galley of type and scrambled it to make a type.
+          </p>
+
+          <div class="about__features">
+            <div class="feature">
+              <div class="feature__icon"><i class="fa-solid fa-eye"></i></div>
+              <div>
+                <h4>Clean Code</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing.</p>
+              </div>
+            </div>
+
+            <div class="feature">
+              <div class="feature__icon"><i class="fa-solid fa-layer-group"></i></div>
+              <div>
+                <h4>Modern Design</h4>
+                <p>Lorem Ipsum is simply dummy text of the printing.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats" id="designs">
+      <div class="container stats__grid">
+        <div class="stat">
+          <div class="stat__icon"><i class="fa-regular fa-window-maximize"></i></div>
+          <div class="stat__label">PROJECT</div>
+          <div class="stat__num" data-count="300">0</div>
+          <div class="stat__plus">+</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat__icon"><i class="fa-solid fa-chart-line"></i></div>
+          <div class="stat__label">PLEASURE</div>
+          <div class="stat__num" data-count="8.9">0</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat__icon"><i class="fa-regular fa-user"></i></div>
+          <div class="stat__label">CUSTOMER</div>
+          <div class="stat__num" data-count="3000">0</div>
+          <div class="stat__plus">+</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat__icon"><i class="fa-solid fa-people-group"></i></div>
+          <div class="stat__label">TEAM MEMBERS</div>
+          <div class="stat__num" data-count="23">0</div>
+        </div>
+      </div>
+
+      <div class="stats__footer" id="contact">
+        <span>DESIGN BY <strong class="accent">HYKROX</strong></span>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
